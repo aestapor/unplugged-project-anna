@@ -36,13 +36,13 @@ app.use(express.static(__dirname + '/public'));
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
 app.get("/", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 app.get("/faq", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/faq.html"));
+    res.sendFile(path.join(__dirname, "./public/faq.html"));
 });
 app.get("/about", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/about.html"));
+    res.sendFile(path.join(__dirname, "./public/about.html"));
 });
 
 liveReloadServer.server.once("connection", () => {
