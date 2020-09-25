@@ -27,6 +27,9 @@ liveReloadServer.watch(path.join(__dirname, 'public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(connectLivereload());
+
+// Use express.static to serve the public folder as a static directory
+app.use(express.static(__dirname + '/public'));
 // ================================================================================
 // ROUTER
 // The below points our server to a series of "route" files.
@@ -41,18 +44,6 @@ app.get("/faq", function(req,res){
 app.get("/about", function(req,res){
     res.sendFile(path.join(__dirname, "./app/public/about.html"));
 });
-app.get("/images/unpluggedlogo.png", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/images/unpluggedlogo.png"));
-})
-app.get("/images/bridge.jpg", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/images/bridge.jpg"));
-})
-app.get("/images/group.jpg", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/images/group.jpg"));
-})
-app.get("/images/black-overlay.jpg", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/images/black-overlay.jpg"));
-})
 
 liveReloadServer.server.once("connection", () => {
     setTimeout(() => {
