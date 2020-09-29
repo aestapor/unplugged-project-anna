@@ -34,26 +34,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
 app.get("/", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 app.get("/faq", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/faq.html"));
+    res.sendFile(path.join(__dirname, "./public/faq.html"));
 });
 app.get("/about", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/about.html"));
+    res.sendFile(path.join(__dirname, "./public/about.html"));
 });
-app.get("/images/unpluggedlogo.png", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/images/unpluggedlogo.png"));
-})
-app.get("/images/bridge.jpg", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/images/bridge.jpg"));
-})
-app.get("/images/group.jpg", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/images/group.jpg"));
-})
-app.get("/images/black-overlay.jpg", function(req,res){
-    res.sendFile(path.join(__dirname, "./app/public/images/black-overlay.jpg"));
-})
 
 liveReloadServer.server.once("connection", () => {
     setTimeout(() => {
